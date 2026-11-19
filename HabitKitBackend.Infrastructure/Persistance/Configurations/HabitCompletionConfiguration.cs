@@ -9,6 +9,6 @@ internal sealed class HabitCompletionConfiguration : IEntityTypeConfiguration<Ha
         builder.HasKey(hc => hc.Id);
         builder.Property(hc => hc.Id).ValueGeneratedNever();
         builder.Property(hc => hc.HabitId).IsRequired();
-        builder.HasIndex(hc => new { hc.Date, hc.HabitId }).IsUnique();
+        builder.HasIndex(hc => new { hc.HabitId, hc.Date, }).IsUnique();
     }
 }

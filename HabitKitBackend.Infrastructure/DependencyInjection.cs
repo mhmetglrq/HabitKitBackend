@@ -6,7 +6,7 @@ public static class DependencyInjection
 {
     public static IServiceCollection AddInfrastructure(this IServiceCollection services, IConfiguration configuration)
     {
-        var connectionString = Environment.GetEnvironmentVariable("HABITKIT_CONNECTION_STRING")
+        var connectionString = configuration.GetConnectionString("Default")
                         ?? throw new InvalidOperationException("Connection string not found.");
 
         services.AddDbContext<AppDbContext>(options => options.UseNpgsql(connectionString));
