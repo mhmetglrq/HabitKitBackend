@@ -1,0 +1,15 @@
+services:
+  postgres:
+    image: postgres:18
+    container_name: habitkit-postgres
+    environment:
+      POSTGRES_USER: habitkit
+      POSTGRES_PASSWORD: habitkit_dev
+      POSTGRES_DB: habitkit
+    ports:
+      - "5433:5432"
+    volumes:
+      - habitkit-pgdata:/var/lib/postgresql
+
+volumes:
+  habitkit-pgdata:
